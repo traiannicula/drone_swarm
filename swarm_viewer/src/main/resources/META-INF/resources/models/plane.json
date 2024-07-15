@@ -1,0 +1,41 @@
+{
+	"metadata": {
+		"version": 4.6,
+		"type": "Object",
+		"generator": "Object3D.toJSON"
+	},
+	"geometries": [
+		{
+			"uuid": "235caf33-50e3-42a3-a921-bf24c6683ee4",
+			"type": "PlaneGeometry",
+			"width": 30,
+			"height": 30,
+			"widthSegments": 1,
+			"heightSegments": 1
+		}],
+	"materials": [
+		{
+			"uuid": "43138fe8-19c7-4aa4-bc6b-c7f2fb5e8d2b",
+			"type": "MeshPhongMaterial",
+			"color": 8906968,
+			"emissive": 1643797,
+			"specular": 15626866,
+			"shininess": 50,
+			"envMapRotation": [0,0,0,
+				"XYZ"],
+			"reflectivity": 1,
+			"refractionRatio": 0.98,
+			"blendColor": 0
+		}],
+	"object": {
+		"uuid": "a8a2bca3-f5be-4c3d-af15-aa6963989e65",
+		"type": "Mesh",
+		"name": "plane",
+		"receiveShadow": true,
+		"layers": 1,
+		"matrix": [1,0,0,0,0,2.220446049250313e-16,-1,0,0,1,2.220446049250313e-16,0,0,0,0,1],
+		"up": [0,1,0],
+		"geometry": "235caf33-50e3-42a3-a921-bf24c6683ee4",
+		"material": "43138fe8-19c7-4aa4-bc6b-c7f2fb5e8d2b"
+	}
+}
