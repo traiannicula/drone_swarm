@@ -118,7 +118,6 @@ async function init(config) {
   const loader = new THREE.ObjectLoader();
 
   // LOAD DRONE
-  // const drone_sample = scene.getObjectByName("drone_sample");
   const drone_sample = await loader.loadAsync("./models/drone_sample.json");
   drone_sample.position.y = -3.0;
   scene.add(drone_sample);
@@ -127,6 +126,12 @@ async function init(config) {
   const car_sample = await loader.loadAsync("./models/sample_sport_car.json");
   car_sample.position.y = -3.0;
   scene.add(car_sample);
+
+  // LOAD FLAME
+  const flame_sample = await loader.loadAsync("./models/flame.json");
+  flame_sample.position.y = -6;
+  scene.add(flame_sample);
+
 
   let drones = new Map();
   let targets = new Map();
@@ -201,13 +206,22 @@ async function init(config) {
           targets.set(t.name, target);
           scene.add(target);
         }
-        target.position.x = t.location.x;
-        target.position.y = t.location.y;
-        target.position.z = t.location.z;
-
-        target.rotation.x = 0.0;
-        target.rotation.y = t.angle.y + Math.PI;
-        target.rotation.z = 0.0;
+        if (t.damaged == true){
+          let flame = flame_sample.clone();
+          flame.position.x = t.location.x;
+          flame.position.y = -0.6;
+          flame.position.z = t.location.z;
+          scene.add(flame);
+          targets.delete(t.name);
+        } else {
+          target.position.x = t.location.x;
+          target.position.y = t.location.y;
+          target.position.z = t.location.z;
+  
+          target.rotation.x = 0.0;
+          target.rotation.y = t.angle.y + Math.PI;
+          target.rotation.z = 0.0;
+        }
       });
     }
 

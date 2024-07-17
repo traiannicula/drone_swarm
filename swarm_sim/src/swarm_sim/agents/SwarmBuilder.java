@@ -73,7 +73,7 @@ public class SwarmBuilder implements ContextBuilder<Object> {
 			e.printStackTrace();
 		}
 		
-		RunEnvironment.getInstance().endAt(12000); 
+//		RunEnvironment.getInstance().endAt(12000); 
 
 		return context;
 	}
