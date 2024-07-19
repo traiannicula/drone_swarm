@@ -9,7 +9,7 @@
 		isReadOnly="false"
 		converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
 	<parameter name="timeScale" displayName="Time scale"
-		type="double" defaultValue="0.0008" isReadOnly="false"
+		type="double" defaultValue="0.0004" isReadOnly="false"
 		converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter" />
 	<parameter name="initialPreyNeighborDistance"
 		displayName="Initial prey neighbor distance" type="int"
@@ -78,14 +78,14 @@
 		isReadOnly="false"
 		converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
 	<parameter name="preyMaxSpeed" displayName="Prey Max Speed"
-		type="double" defaultValue="70.0" isReadOnly="false"
+		type="double" defaultValue="100.0" isReadOnly="false"
 		converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter" />
 	<parameter name="targetMaxSpeed"
-		displayName="Target Max Speed" type="double" defaultValue="0.005"
+		displayName="Target Max Speed" type="double" defaultValue="70"
 		isReadOnly="false"
 		converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter" />
 	<parameter name="targetKillRadius"
-		displayName="Target Kill Radius" type="double" defaultValue="10.0"
+		displayName="Target Kill Radius" type="double" defaultValue="20.0"
 		isReadOnly="false"
 		converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter" />
 </parameters>

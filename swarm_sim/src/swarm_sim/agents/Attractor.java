@@ -26,13 +26,14 @@ public class Attractor {
 	
 		// add 4 new attrators
 		Dimensions dims = space.getDimensions();
-		for (int i = 0; i < RandomHelper.getUniform().nextIntFromTo(1, 3); i++) {
+		for (int i = 0; i < RandomHelper.getUniform().nextIntFromTo(1, 4); i++) {
 			Target target = new Target();
 			target.setName("target" + ++count);
 			context.add(target);
-			double z = RandomHelper.nextDoubleFromTo(dims.getDimension(2)/4, 3 * dims.getDimension(2)/4);
-			target.lastPosition.add(new Vector3d(0, 0, z));
-			space.moveTo(target, 0, 0, z);	
+			double initZ = RandomHelper.nextDoubleFromTo(dims.getDimension(2)/4, 3 * dims.getDimension(2)/4);
+			double initX = -dims.getDimension(1);
+			target.lastPosition.add(new Vector3d(initX, 0, initZ));
+			space.moveTo(target, initX, 0, initZ);	
 		}
 	}
 		

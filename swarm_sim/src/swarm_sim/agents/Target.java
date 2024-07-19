@@ -39,7 +39,7 @@ public class Target extends Boid {
 		Vector3d delta = new Vector3d( Math.sin(yAngle), 0,  Math.cos(yAngle));
 		delta.normalize();
 		delta.scale(targetMaxSpeed);
-		velocity.scale(timeScale);
+		delta.scale(timeScale);
 		velocity.add(delta);
 	}
 	

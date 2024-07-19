@@ -235,9 +235,9 @@ public class Prey extends Boid {
 		// debug zone
 //		double yA = Utils.getYRotation(speed);
 //		double xA = Utils.getXRotation(speed, yA);
-		if (name.equals("drone1")) {
-			Utils.writeToFile( Math.sqrt(lastPosition.lengthSquared()) + System.lineSeparator());
-		}
+//		if (name.equals("drone1")) {
+//			Utils.writeToFile( Math.sqrt(lastPosition.lengthSquared()) + System.lineSeparator());
+//		}
 
 	}
 

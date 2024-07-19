@@ -100,7 +100,7 @@ async function init(config) {
   document.addEventListener("keydown", (event) => {
     if (event.code === "KeyC") {
       if (camera === defaultCamera) {
-        const drone = scene.getObjectByName("drone1");
+        const drone = scene.getObjectByName("drone150");
         if (drone) {
           camera = drone.getObjectByName("PerspectiveCamera");
           activeControls = null; // Disable controls for drone camera
