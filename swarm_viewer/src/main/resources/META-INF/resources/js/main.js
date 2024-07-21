@@ -33,7 +33,9 @@ async function init(config) {
     1000
   );
 
+  defaultCamera.position.x = 200;
   defaultCamera.position.y = 50;
+  defaultCamera.position.z = 200;
   defaultCamera.name = "Defaul camera";
   let camera = defaultCamera;
 
@@ -65,8 +67,9 @@ async function init(config) {
   // CONTROLS
 
   const controls = new OrbitControls(camera, renderer.domElement);
-  controls.maxPolarAngle = (0.9 * Math.PI) / 2;
+  controls.maxPolarAngle = (1.0 * Math.PI) / 2;
   controls.enableZoom = true;
+  controls.target.set(0, 20, 0);
   let activeControls = controls;
 
   // CUBES TO MARK AREA
@@ -172,30 +175,47 @@ async function init(config) {
   function animate() {
     if (simObj != null) {
       simObj.drones.forEach((d) => {
-        let drone = drones.get(d.name);
-        if (drone == null) {
-          drone = drone_sample.clone();
+        let obj3D = drones.get(d.name);
+        if (obj3D == null) {
+          const drone = drone_sample.clone();
           drone.name = d.name;
-          drones.set(d.name, drone);
+          const rotor1 = drone.getObjectByName("Circle002");
+          const rotor2 = drone.getObjectByName("Circle003");
+          const rotor3 = drone.getObjectByName("Circle004");
+          const rotor4 = drone.getObjectByName("Circle005");
+          obj3D = {};
+          obj3D.drone = drone;
+          obj3D.rotor1 = rotor1;
+          obj3D.rotor2 = rotor2;
+          obj3D.rotor3 = rotor3;
+          obj3D.rotor4 = rotor4;
+          drones.set(d.name, obj3D);
           scene.add(drone);
         }
-        drone.position.x = d.location.x;
-        drone.position.y = d.location.y;
-        drone.position.z = d.location.z;
+        console.log(obj3D);
+        obj3D.drone.position.x = d.location.x;
+        obj3D.drone.position.y = d.location.y;
+        obj3D.drone.position.z = d.location.z;
 
         // YAW - rotation about Y axis in global system
-        if (drone.rotation.y !== d.angle.y) {
-          drone.rotation.y = smoothAngle(d.angle.y, drone.rotation.y);
+        if (obj3D.drone.rotation.y !== d.angle.y) {
+          obj3D.drone.rotation.y = smoothAngle(d.angle.y, obj3D.drone.rotation.y);
           // drone.rotation.y = smoothAngleEMA(d.angle.y, drone.rotation.y);
         }
         // drone.rotation.y = d.angle.y;
 
         // PITCH- rotation about X axis - drone local system
-        if (drone.children[0].rotation.x !== d.angle.x) {
-          drone.children[0].rotation.x = smoothAngle(d.angle.x, drone.children[0].rotation.x);
+        if (obj3D.drone.children[0].rotation.x !== d.angle.x) {
+          obj3D.drone.children[0].rotation.x = smoothAngle(d.angle.x, obj3D.drone.children[0].rotation.x);
           // drone.children[0].rotation.x = smoothAngleEMA(d.angle.x, drone.children[0].rotation.x);
         }
         // drone.children[0].rotation.x = d.angle.x;
+
+        // turn rotors
+        obj3D.rotor1.rotation.z += 30;
+        obj3D.rotor3.rotation.z += 30;
+        obj3D.rotor2.rotation.z += -30;
+        obj3D.rotor4.rotation.z += -30;
       });
 
       simObj.targets.forEach((t) => {
