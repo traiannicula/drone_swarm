@@ -18,7 +18,7 @@ public class Attractor {
 	}
 
 //	@ScheduledMethod(start = 5000, interval = 10000, priority = ScheduleParameters.LAST_PRIORITY)
-	@ScheduledMethod(start = 10000)
+	@ScheduledMethod(start = 6000)
 	public void init() {
 		Context<Object> context = ContextUtils.getContext(this);
 		if (space == null)
