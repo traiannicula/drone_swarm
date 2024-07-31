@@ -18,5 +18,7 @@ The repository is made up of two projects:
 ## Preview
 A brief preview of the simulation run and 3D visualization can be seen in the video below. The left side shows the Repast viewer with the described agents, while the right side displays the simulation results in the Three.js viewer.
 
-[![Swarm of Drones Simulation Testbed](https://img.youtube.com/vi/YyVbCgaHDXU/0.jpg)]([https://youtu.be/YyVbCgaHDXU](https://youtu.be/YyVbCgaHDXU) "Swarm of Drones Simulation Testbed")
+[![Swarm of Drones Simulation Testbed](https://img.youtube.com/vi/YyVbCgaHDXU/0.jpg)](https://youtu.be/YyVbCgaHDXU "Swarm of Drones Simulation Testbed")
+
+
 
